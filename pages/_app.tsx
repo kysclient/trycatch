@@ -1,8 +1,20 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
+import {RecoilRoot} from "recoil";
+import {Global, css} from "@emotion/react";
+import {createContext} from "react";
+import {CustomThemeProvider} from "../styles/CustomThemeProvider";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+
+function App({Component, pageProps}: AppProps) {
+
+    return (
+        <RecoilRoot>
+            <CustomThemeProvider>
+                <Component {...pageProps} />
+            </CustomThemeProvider>
+
+        </RecoilRoot>
+    )
 }
 
-export default MyApp
+export default App
