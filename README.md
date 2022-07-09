@@ -27,3 +27,4 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 "@types/react-dom": "18.0.6",
 "@emotion/react": "^11.9.3",
 "@emotion/styled": "^11.9.3",
+"react-icons": "^4.4.0",

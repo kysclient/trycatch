@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { useCallback, useEffect, useState } from 'react';
 import { GlobalStyles } from './globals';
 import { mode } from './theme';
+import {FaMoon} from "react-icons/fa";
+import {FiSun} from "react-icons/fi";
 
 interface Props {
     children: React.ReactNode;
@@ -33,6 +35,7 @@ export const CustomThemeProvider: React.FC<Props> = ({ children }) => {
             setTheme(mode.light);
         }
     }, [dark]);
+
     const toggleTheme = useCallback(() => {
         setDark((curr) => !curr);
     }, [dark]);
@@ -42,10 +45,12 @@ export const CustomThemeProvider: React.FC<Props> = ({ children }) => {
             <Global styles={GlobalStyles(theme)} />
             {children}
             <DarkModeBtn type="button" onClick={toggleTheme}>
-                {dark ? '라이트 모드로 보기' : '다크 모드로 보기'}
+                {dark ? <FiSun style={{width : '25px', height: '25px'}}/>
+                    : <FaMoon style={{width : '25px', height: '25px'}}/>}
             </DarkModeBtn>
         </ThemeProvider>
     );
+
 
     if (!mounted) {
         return <div style={{ visibility: 'hidden' }}>{body}</div>;
@@ -54,12 +59,13 @@ export const CustomThemeProvider: React.FC<Props> = ({ children }) => {
 };
 
 const DarkModeBtn = styled.button`
+  border: none;
   position: fixed;
   bottom: 30px;
   right: 30px;
   height: 40px;
   padding: 0 25px;
-  border-radius: 20px;
+  border-radius: 25px;
   background: ${({ theme }) => theme.bg.darkBtn};
   color: ${({ theme }) => theme.text.darkBtn};
   font-weight: 600;
