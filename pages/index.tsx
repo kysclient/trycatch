@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {useState} from "react";
+import NavBar from "../components/NavBar";
 
 
 const Home: NextPage = () => {
@@ -14,7 +16,9 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.grid}>
-          body
+            <NavBar/>
+            Hi
+
         </div>
       </main>
 
